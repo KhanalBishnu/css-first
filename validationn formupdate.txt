@@ -1,0 +1,49 @@
+<script>
+$(document).ready(function() {
+    $('.submit-button').click(function() {
+        var modal = $(this).closest('.modal'); // Get the parent modal element
+        var form = modal.find('.modal-form'); // Get the form within the modal
+
+        // Clear previous error messages
+        form.find('.error-message').text('');
+
+        // Perform form validation within the modal
+        var isValid = true;
+
+        form.find('.form-element').each(function() {
+            var element = $(this);
+            var value = element.val();
+
+            // Perform validation for each form element
+            if (value.trim() === '') {
+                var errorMessage = element.data('error-message');
+                element.next('.error-message').text(errorMessage);
+                isValid = false;
+            }
+        });
+
+        if (isValid) {
+            // Form is valid, perform further actions
+            // You can submit the form or perform any other desired action here
+            form.submit();
+        }
+    });
+});
+</script>
+
+
+
+<!-- Loop to generate multiple modals -->
+@foreach ($items as $item)
+    <div class="modal" id="modal{{ $item->id }}">
+        <div class="modal-content">
+            <form class="modal-form">
+                <input type="text" name="text_input[]" class="form-control form-element">
+                <input type="file" name="file_input[]" class="form-control form-element">
+                <!-- Add other form elements as needed -->
+
+                <button type="button" class="btn btn-primary submit-button">Submit</button>
+            </form>
+        </div>
+    </div>
+@endforeach
