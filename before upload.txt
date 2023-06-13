@@ -60,6 +60,8 @@ $(document).ready(function() {
           displayImagePreview(e.target.result);
         } else if (file.type.startsWith('video/')) {
           displayVideoPreview(e.target.result);
+        } else if (file.type === 'application/pdf') {
+          displayPdfPreview(e.target.result);
         } else {
           displayDefaultPreview();
         }
@@ -98,7 +100,15 @@ $(document).ready(function() {
     filePreview.append(video);
   }
 
-  // Function to display a default preview (e.g., for PDF files)
+  // Function to display a PDF preview
+  function displayPdfPreview(url) {
+    var pdfContainer = $('<div>').addClass('pdf-container');
+    var pdfIframe = $('<iframe>').attr('src', 'https://mozilla.github.io/pdf.js/web/viewer.html?file=' + encodeURIComponent(url));
+    pdfContainer.append(pdfIframe);
+    filePreview.append(pdfContainer);
+  }
+
+  // Function to display a default preview (e.g., for other file types)
   function displayDefaultPreview() {
     var defaultIcon = $('<i>').addClass('far fa-file');
     filePreview.append(defaultIcon);
