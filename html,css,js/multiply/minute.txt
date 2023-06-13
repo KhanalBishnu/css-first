@@ -1,0 +1,13 @@
+To know about status of the project Progress
+
+
+
+dis
+
+1.communiction between the employees to be done formally through mails rather then slack
+2.only those task to be followed which are sent by the lead
+3.task provided to the employees must be verified  by the lead before deploed .
+4. updating of  daily task updates in ClickUp to maintain visibility and track progress.
+5.optimization time and resources and informing the lead in  case of any delay task
+6.any kind of projects bugs or requirements should be prioritized through mails
+7.Any task to be performed should be provided with proper documentation
