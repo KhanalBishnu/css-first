@@ -1,0 +1,47 @@
+$(document).ready(function() {
+  // Get references to the image input, error message, and submit button
+  var imageInput = $('#imageInput');
+  var errorMessage = $('#errorMessage');
+  var submitButton = $('#submitButton');
+
+  // Add an event listener to the submit button
+  submitButton.on('click', function() {
+    // Clear previous error messages
+    errorMessage.empty();
+
+    // Get the selected files
+    var files = imageInput.get(0).files;
+
+    // Check if files are selected
+    if (files.length > 0) {
+      var valid = true;
+
+      // Loop through each file and perform validation
+      for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+
+        // Check file size (less than 4MB)
+        if (file.size > 4 * 1024 * 1024) {
+          errorMessage.text('File size should be less than 4MB.');
+          valid = false;
+          break;
+        }
+
+        // Check file extension (only allow specific extensions)
+        var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+        var fileExtension = file.name.split('.').pop().toLowerCase();
+        if (!allowedExtensions.includes(fileExtension)) {
+          errorMessage.text('Invalid file extension. Only JPG, JPEG, PNG, and GIF are allowed.');
+          valid = false;
+          break;
+        }
+      }
+
+      // If all files pass validation, submit the form
+      if (valid) {
+        // Your code to submit the form
+        // e.g., $('#myForm').submit();
+      }
+    }
+  });
+});

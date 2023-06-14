@@ -1,0 +1,87 @@
+<input type="file" id="fileInput" name="files[]" multiple>
+<div id="previewContainer"></div>
+<button type="submit" id="submitButton">Upload</button>
+
+
+
+$(document).ready(function() {
+  // Get references to the file input, preview container, and submit button
+  var fileInput = $('#fileInput');
+  var previewContainer = $('#previewContainer');
+  var submitButton = $('#submitButton');
+
+  // Add an event listener to the file input
+  fileInput.on('change', function() {
+    // Clear previous file previews
+    previewContainer.empty();
+
+    // Loop through each selected file
+    for (var i = 0; i < this.files.length; i++) {
+      var file = this.files[i];
+      var reader = new FileReader();
+
+      // Read the file and create a preview image
+      reader.onload = function(e) {
+        var previewImage = $('<img>');
+        previewImage.attr('src', e.target.result);
+        previewImage.addClass('preview-image');
+
+        // Create a delete button for the file
+        var deleteButton = $('<button>');
+        deleteButton.text('Delete');
+        deleteButton.addClass('delete-button');
+        deleteButton.data('fileIndex', i);
+        deleteButton.on('click', function() {
+          // Remove the file preview
+          $(this).parent().remove();
+
+          // Remove the file from the input's files property
+          var fileIndex = $(this).data('fileIndex');
+          fileInput.get(0).files = Array.from(fileInput.get(0).files).filter(function(_, index) {
+            return index !== fileIndex;
+          });
+        });
+
+        // Create a container for the file preview
+        var previewContainerItem = $('<div>');
+        previewContainerItem.addClass('preview-container-item');
+        previewContainerItem.append(previewImage);
+        previewContainerItem.append(deleteButton);
+
+        // Append the file preview to the container
+        previewContainer.append(previewContainerItem);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // Add an event listener to the submit button
+  submitButton.on('click', function() {
+    // Get the selected files
+    var files = fileInput.get(0).files;
+
+    // Prepare form data to send to the server
+    var formData = new FormData();
+    for (var i = 0; i < files.length; i++) {
+      formData.append('files[]', files[i]);
+    }
+
+    // Send the form data using AJAX
+    $.ajax({
+      type: 'POST',
+      url: '/upload',
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function(response) {
+        // Handle the response from the server
+        console.log(response);
+      },
+      error: function(xhr, status, error) {
+        // Handle the error
+        console.log(error);
+      }
+    });
+  });
+});
