@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h2 class="logo">Logo</h2>
+        <div class="navbar">
+            <!-- <ul> -->
+                <a>Home</a>
+                <a>Contact </a>
+                <a>Service</a>
+                
+            <!-- </ul> -->
+            <button class="btn-login" id="logic_call_div">Login</button>
+        </div>
+    </header>
+    <div class="div_container">
+        <input type="checkbox" name="" id="slide">
+        <div class="container">
+            <div class="login_form">
+                <h2>Login</h2>
+                <form action="">
+                <div class="form_input">
+                    <span class="icon"></span>
+                    <label>Email</label>
+                    <input type="password" class="input">
+                </div>
+                <div class="form_input">
+                    <span class="icon"></span>
+                    <label>Password</label>
+                    <input type="email" class="input">
+                </div>
+                <div class="forget-div">
+                    <a href="">Forget Password</a>
+                </div>
+                <div class="login-div">
+                    <button class="login-text">Login</button>
+                </div>
+                
+                <div class="signup-div">
+                    Are you not a member? <a href="#"><label for="slide" class="slide">Sign Up</label></a>
+                </div>
+            </form>
+            </div>
+            <div class="signup_form login_form">
+                    <h2>Register</h2>
+                    <form action="" id="signup_formm">
+                    <div class="form_input">
+                        <span class="icon"></span><label>Full Name</label>
+                        <input type="text" class="input">
+                    </div>
+                    <div class="form_input">
+                        <span class="icon"></span>
+                        <label>Email</label>
+                        <input type="email" class="input">
+                    </div>
+                    <div class="form_input">
+                        <span class="icon"></span>
+                        <label>Password</label>
+                        <input type="password" class="input" id="password">
+                    </div>
+                    <div class="form_input">
+                        <span class="icon"></span><label>Confirm Password</label>
+                        <input type="password" class="input"  id="connfirm_password">
+                    </div>
+                
+                    <div class="sign-div sign_up_div login-div">
+                        <button class="sign-text">Sign Up</button>
+                    </div>
+                </form>
+                <div class="signup-div">
+                    Are you member? <a href="#"><label for="slide" class="slide">Login</label></a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+
+        $('#signup_formm').click(function(e){
+            e.preventDefault();
+            alert()
+        });
+        $('#logic_call_div').click(function () {
+            $('.div_container').show();
+        });
+    </script>
+
+
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

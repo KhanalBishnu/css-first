@@ -1,0 +1,42 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    height: 100vh;
+
+    
+}
+.navbar{
+    display: flex;
+    height: 90px;
+    width: 100%;
+    justify-content: space-between;
+    background-color: rgb(186, 202, 216);
+    text-align: center;
+     align-items: center; 
+     position: fixed;
+}
+.navbar ul{
+    list-style: none;
+    display: flex;
+
+}
+.navbar ul li{
+    margin: 0px 10px;
+}
+.contant-center{
+    width: 100%;
+    background-image: url('./images (8).jpg');
+    height: 390px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 40px;
+    letter-spacing: 5px;
+
+}
+.button{
+    padding: 50px 15px;
+    font-family: sans-serif;
+}

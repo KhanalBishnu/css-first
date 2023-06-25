@@ -1,0 +1,76 @@
+body{
+    background-color: rgb(212, 106, 106);
+    margin: 0;
+    display: flex;
+    text-align: center;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+.div{
+    height: 290px;
+    width: 450px;
+    background-color:rgb(221, 67, 67);
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+h4{
+    font-family: cursive;
+    font-size: 20px;
+}
+
+#input{
+    width: 90%;
+    height: 90px;
+    font-size: 20px;
+    font-family: cursive;
+    color: black;
+    box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    border-radius: 10px;
+    resize: none;
+    border: 2px solid palevioletred;
+    
+}
+.span{
+    display: flex;
+    /* position: relative; */
+    /* flex-direction: row; */
+    justify-content:space-evenly;
+
+}
+/* .change{
+    display: inline;
+    margin: 0px 45px;
+    margin-top: 30px;
+} */
+#rem{
+    /* justify-content: end; */
+    /* align-items: end; */
+    /* padding: 5px; */
+    color: rgb(71, 17, 122);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    background-color: chocolate;
+}
+#char{
+    /* justify-content: right; */
+    color: rgb(71, 17, 122);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+#rem_coount{
+    color: rgb(155, 19, 19);
+    /* background-color: rgb(217, 220, 233); */
+    /* box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); */
+}
+#count_word{
+    color: rgb(12, 1, 20);
+}
+#word{
+    color: rgb(119, 52, 128);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+#count_char{
+    color: rgb(5, 63, 73);
+}
